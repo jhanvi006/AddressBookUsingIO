@@ -111,6 +111,11 @@ public class Operations implements AddressBookInterface {
         }
         System.out.println("Contact not found.");
     }
+    public void displayContactsOfAddressBook(ArrayList<Contacts> contactDetails){
+        for (Contacts contactDetailsValue : contactDetails){
+            System.out.println(contactDetailsValue);
+        }
+    }
     public ArrayList<Contacts> displayContacts(){
         System.out.println(Arrays.asList(addressBookList));
         return null;
@@ -209,7 +214,8 @@ public class Operations implements AddressBookInterface {
                     "\n2. Edit contact details \n3. Delete contact details " +
                     "\n4. Display contact details \n5. Search contact by city or state" +
                     "\n6. View Dictionary \n7. Count Contact \n8. Sort contact details by First Name" +
-                    "\n9. Sort by City, State or Zip \n0. Exit");
+                    "\n9. Sort by City, State or Zip \n10. Write contacts to file" +
+                    "\n11. Display contacts from file \n0. Exit");
             selectMenuOption = sc.nextInt();
 
             switch (selectMenuOption) {
@@ -227,7 +233,7 @@ public class Operations implements AddressBookInterface {
                     break;
                 case 4:
                     /*  Display contact details */
-                    addressDetails.displayContacts();
+                    addressDetails.displayContactsOfAddressBook(contactDetails);
                     break;
                 case 5:
                     /*  Display contact details of a specific city  */
@@ -249,6 +255,14 @@ public class Operations implements AddressBookInterface {
                     /*  Sort by City, State or Zip  */
                     addressDetails.sortContacts(contactDetails);
                     break;
+                case 10:
+                    /*  Write in file   */
+                    IOFileOperation.writeInFile(contactDetails);
+                    break;
+                case 11:
+                    /*  Display contacts from file  */
+                    IOFileOperation.readFile();
+                    break;
                 case 0:
                     System.out.println("Exit!");
                     break;
@@ -267,9 +281,11 @@ public class Operations implements AddressBookInterface {
             addressBookName = sc.next();
             if (addressBookList.containsKey(addressBookName)) {
                 System.out.println("Address Book with " + addressBookName + " name already exists.");
+                displayContacts();
             }
             else {
                 ArrayList<Contacts> contactDetails = new ArrayList<>();
+                IOFileOperation.createFile();
                 addressBookList.put(addressBookName, addDetails(contactDetails));
                 displayActionMenu(addressDetails, contactDetails);
             }

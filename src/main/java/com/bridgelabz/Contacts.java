@@ -56,6 +56,19 @@ class Contacts{
     public void setEmail(String email){
         this.email = email;
     }
+    /*  Create contacts constructor     */
+//    public Contacts(String firstName, String lastName, String address, String city, String state,
+//                    String zipCode, String contactNo, String email){
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.address = address;
+//        this.city = city;
+//        this.state = state;
+//        this.zipCode = zipCode;
+//        this.contactNo = contactNo;
+//        this.email = email;
+//    }
+
     /*
      *   Object to String Conversion
      */

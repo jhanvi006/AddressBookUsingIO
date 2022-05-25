@@ -1,0 +1,24 @@
+First Name: jhanvi
+Last Name: kanakhara
+Address: vvn
+City: jamnagar
+State: gj
+Zip Code: 321221
+Contact No: 7878787878
+Email: jk@gmail.com
+First Name: karan
+Last Name: shah
+Address: andheri
+City: mumbai
+State: mh
+Zip Code: 421221
+Contact No: 9090909090
+Email: kshah@yahoo.com
+First Name: pooja
+Last Name: mehta
+Address: scr
+City: ahd
+State: gj
+Zip Code: 391220
+Contact No: 5645445500
+Email: pooja@gmail.com
