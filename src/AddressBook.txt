@@ -22,3 +22,11 @@ State: gj
 Zip Code: 391220
 Contact No: 5645445500
 Email: pooja@gmail.com
+First Name: madhuri
+Last Name: patel
+Address: kvr
+City: rajkot
+State: gj
+Zip Code: 310990
+Contact No: 767567700
+Email: madhuri@yahoo.com

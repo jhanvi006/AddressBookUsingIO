@@ -214,8 +214,9 @@ public class Operations implements AddressBookInterface {
                     "\n2. Edit contact details \n3. Delete contact details " +
                     "\n4. Display contact details \n5. Search contact by city or state" +
                     "\n6. View Dictionary \n7. Count Contact \n8. Sort contact details by First Name" +
-                    "\n9. Sort by City, State or Zip \n10. Write contacts to file" +
-                    "\n11. Display contacts from file \n0. Exit");
+                    "\n9. Sort by City, State or Zip \n10. Write contacts to text file" +
+                    "\n11. Display contacts from text file \n12. Write contacts to csv file" +
+                    "\n13. Display contacts from csv file \n0. Exit");
             selectMenuOption = sc.nextInt();
 
             switch (selectMenuOption) {
@@ -256,12 +257,20 @@ public class Operations implements AddressBookInterface {
                     addressDetails.sortContacts(contactDetails);
                     break;
                 case 10:
-                    /*  Write in file   */
+                    /*  Write in text file   */
                     IOFileOperation.writeInFile(contactDetails);
                     break;
                 case 11:
-                    /*  Display contacts from file  */
+                    /*  Display contacts from text file  */
                     IOFileOperation.readFile();
+                    break;
+                case 12:
+                    /*  Write in csv file   */
+                    CSVFileOperation.writeCSVFile(contactDetails);
+                    break;
+                case 13:
+                    /*  Display contacts from csv file  */
+                    CSVFileOperation.readCSVFile();
                     break;
                 case 0:
                     System.out.println("Exit!");
