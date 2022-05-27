@@ -216,7 +216,8 @@ public class Operations implements AddressBookInterface {
                     "\n6. View Dictionary \n7. Count Contact \n8. Sort contact details by First Name" +
                     "\n9. Sort by City, State or Zip \n10. Write contacts to text file" +
                     "\n11. Display contacts from text file \n12. Write contacts to csv file" +
-                    "\n13. Display contacts from csv file \n0. Exit");
+                    "\n13. Display contacts from csv file \n14. Write contacts to json file " +
+                    "\n15. Display contacts from json file \n0. Exit");
             selectMenuOption = sc.nextInt();
 
             switch (selectMenuOption) {
@@ -271,6 +272,14 @@ public class Operations implements AddressBookInterface {
                 case 13:
                     /*  Display contacts from csv file  */
                     CSVFileOperation.readCSVFile();
+                    break;
+                case 14:
+                    /*  Write in json file   */
+                    JSONFileOperation.jsonWriteFile(contactDetails);
+                    break;
+                case 15:
+                    /*  Display contacts from json file  */
+                    JSONFileOperation.jsonReadFile();
                     break;
                 case 0:
                     System.out.println("Exit!");
