@@ -86,12 +86,26 @@ public class AddressBookDB {
         return contactsList;
     }
 
-    public List<Contacts> retrieveData(String date) {
+    public List<Contacts> retrieveDataByDate(String date) {
         try {
             String sql = "SELECT * FROM address_book_table WHERE date_added BETWEEN ? AND CURDATE()";
             Connection connection = this.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, date);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            contactsList = this.getContactDetails(resultSet);
+        } catch (SQLException e) {
+            System.out.println("Error: "+e);
+        }
+        return contactsList;
+    }
+    public List<Contacts> retrieveDataByCityOrState(String city, String state) {
+        try {
+            String sql = "SELECT * FROM address_book_table WHERE city = ? OR state = ?";
+            Connection connection = this.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, city);
+            preparedStatement.setString(2, state);
             ResultSet resultSet = preparedStatement.executeQuery();
             contactsList = this.getContactDetails(resultSet);
         } catch (SQLException e) {

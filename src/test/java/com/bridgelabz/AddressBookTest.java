@@ -24,8 +24,15 @@ public class AddressBookTest {
     @Test
     public void givenDates_WhenRetrieved_ShouldMatchContactCount(){
         addressBookDB = new AddressBookDB();
-        List<Contacts> contactsList = addressBookDB.retrieveData("2020-01-01");
+        List<Contacts> contactsList = addressBookDB.retrieveDataByDate("2020-01-01");
         System.out.println(contactsList);
         Assertions.assertEquals(1, contactsList.size());
+    }
+    @Test
+    public void givenCityAndState_WhenRetrieved_ShouldMatchContactCount(){
+        addressBookDB = new AddressBookDB();
+        List<Contacts> contactsList = addressBookDB.retrieveDataByCityOrState("Ahmedabad", "Maharashtra");
+        System.out.println(contactsList);
+        Assertions.assertEquals(3, contactsList.size());
     }
 }
