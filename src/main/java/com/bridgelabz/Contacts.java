@@ -1,7 +1,8 @@
 package com.bridgelabz;
 
 class Contacts{
-    private String firstName, lastName, address, city, state, zipCode, contactNo, email;
+    private String firstName, lastName, address, city, state, zipCode, contactNo, email,
+            addressBookName, addressBookType;
     /*
      *  Getter Methods
      */
@@ -28,6 +29,12 @@ class Contacts{
     }
     public String getEmail(){
         return email;
+    }
+    public String getAddressBookName(){
+        return addressBookName;
+    }
+    public String getAddressBookType(){
+        return addressBookType;
     }
     /*
      * Setter Methods
@@ -56,25 +63,35 @@ class Contacts{
     public void setEmail(String email){
         this.email = email;
     }
+    public void setAddressBookName(String addressBookName){
+        this.email = email;
+    }
+    public void setAddressBookType(String addressBookType){
+        this.email = email;
+    }
     /*  Create contacts constructor     */
-//    public Contacts(String firstName, String lastName, String address, String city, String state,
-//                    String zipCode, String contactNo, String email){
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.address = address;
-//        this.city = city;
-//        this.state = state;
-//        this.zipCode = zipCode;
-//        this.contactNo = contactNo;
-//        this.email = email;
-//    }
-
+    public Contacts() {}
+    public Contacts(String firstName, String lastName, String address, String city, String state,
+                    String zipCode, String contactNo, String email, String addressBookName,
+                    String addressBookType){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
+        this.contactNo = contactNo;
+        this.email = email;
+        this.addressBookName = addressBookName;
+        this.addressBookType = addressBookType;
+    }
     /*
      *   Object to String Conversion
      */
     public String toString(){
         return ("First Name: " + firstName +"\nLast Name: "+ lastName +"\nAddress: " + address +
                 "\nCity: " + city + "\nState: " + state + "\nZip Code: " + zipCode +
-                "\nContact No: " + contactNo + "\nEmail: "+email);
+                "\nContact No: " + contactNo + "\nEmail: "+ email + "\nAddress Book Name: "+
+                addressBookName + "\nAddress Book Type: "+addressBookType);
     }
 }
