@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,9 +76,24 @@ public class AddressBookDB {
                 String email = resultSet.getString("email");
                 String addressBookName = resultSet.getString("address_book_name");
                 String addressBookType = resultSet.getString("address_book_type");
+                LocalDate dateAdded = resultSet.getDate("date_added").toLocalDate();
                 contactsList.add(new Contacts(firstName, lastName, address, city,
-                        state, zipCode, phoneNo, email, addressBookName, addressBookType));
+                        state, zipCode, phoneNo, email, addressBookName, addressBookType, dateAdded));
             }
+        } catch (SQLException e) {
+            System.out.println("Error: "+e);
+        }
+        return contactsList;
+    }
+
+    public List<Contacts> retrieveData(String date) {
+        try {
+            String sql = "SELECT * FROM address_book_table WHERE date_added BETWEEN ? AND CURDATE()";
+            Connection connection = this.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, date);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            contactsList = this.getContactDetails(resultSet);
         } catch (SQLException e) {
             System.out.println("Error: "+e);
         }

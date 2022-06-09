@@ -1,6 +1,10 @@
 package com.bridgelabz;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 class Contacts{
+    private LocalDate dateAdded;
     private String firstName, lastName, address, city, state, zipCode, contactNo, email,
             addressBookName, addressBookType;
     /*
@@ -36,6 +40,9 @@ class Contacts{
     public String getAddressBookType(){
         return addressBookType;
     }
+    public LocalDate getDateAdded(){
+        return dateAdded;
+    }
     /*
      * Setter Methods
      */
@@ -69,11 +76,14 @@ class Contacts{
     public void setAddressBookType(String addressBookType){
         this.email = email;
     }
+    public void setDateAdded(LocalDate dateAdded){
+        this.dateAdded = dateAdded;
+    }
     /*  Create contacts constructor     */
     public Contacts() {}
     public Contacts(String firstName, String lastName, String address, String city, String state,
                     String zipCode, String contactNo, String email, String addressBookName,
-                    String addressBookType){
+                    String addressBookType, LocalDate dateAdded){
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -84,6 +94,7 @@ class Contacts{
         this.email = email;
         this.addressBookName = addressBookName;
         this.addressBookType = addressBookType;
+        this.dateAdded = dateAdded;
     }
     /*
      *   Object to String Conversion
@@ -92,6 +103,6 @@ class Contacts{
         return ("First Name: " + firstName +"\nLast Name: "+ lastName +"\nAddress: " + address +
                 "\nCity: " + city + "\nState: " + state + "\nZip Code: " + zipCode +
                 "\nContact No: " + contactNo + "\nEmail: "+ email + "\nAddress Book Name: "+
-                addressBookName + "\nAddress Book Type: "+addressBookType);
+                addressBookName + "\nAddress Book Type: "+addressBookType + "\nDate Added: " + dateAdded);
     }
 }

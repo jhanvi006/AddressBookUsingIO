@@ -8,7 +8,7 @@ import java.util.List;
 public class AddressBookTest {
     private AddressBookDB addressBookDB;
     @Test
-    public void givenContactDetailsInDB_WhenRetrieved_ShouldMatchEmployeeCount(){
+    public void givenContactDetailsInDB_WhenRetrieved_ShouldMatchContactCount(){
         addressBookDB = new AddressBookDB();
         List<Contacts> contactsList = addressBookDB.readData();
         System.out.println(contactsList);
@@ -20,5 +20,12 @@ public class AddressBookTest {
         addressBookDB.updateContact("pooja@gmail.com", "Patel");
         boolean result = addressBookDB.checkEmployeePayrollInSyncWithDB("pooja@gmail.com");
         Assertions.assertTrue(result);
+    }
+    @Test
+    public void givenDates_WhenRetrieved_ShouldMatchContactCount(){
+        addressBookDB = new AddressBookDB();
+        List<Contacts> contactsList = addressBookDB.retrieveData("2020-01-01");
+        System.out.println(contactsList);
+        Assertions.assertEquals(1, contactsList.size());
     }
 }
