@@ -4,8 +4,10 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class AddressBookDB {
+    Scanner sc = new Scanner(System.in);
     List<Contacts> contactsList;
     private Connection getConnection() throws SQLException {
         String jdbcURL = "jdbc:mysql://localhost:3306/address_book_service?useSSL=false";
@@ -112,5 +114,19 @@ public class AddressBookDB {
             System.out.println("Error: "+e);
         }
         return contactsList;
+    }
+
+    public void addContact() {
+        String sql = "INSERT INTO address_book_table (first_name, last_name, address, city, " +
+                "state, zip_code, phone_no, email, address_book_name, address_book_type, " +
+                "date_added) VALUES ('Shreya', 'Patel', 'Baner', 'Pune', 'Maharashtra', " +
+                "'410450', '1880902233', 'shreya@gmail.com', 'famjam', 'Family', '2020-08-30');";
+        try {
+            Connection connection = this.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error: "+e);
+        }
     }
 }

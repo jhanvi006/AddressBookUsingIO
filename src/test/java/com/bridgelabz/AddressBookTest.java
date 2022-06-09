@@ -3,6 +3,7 @@ package com.bridgelabz;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class AddressBookTest {
@@ -34,5 +35,13 @@ public class AddressBookTest {
         List<Contacts> contactsList = addressBookDB.retrieveDataByCityOrState("Ahmedabad", "Maharashtra");
         System.out.println(contactsList);
         Assertions.assertEquals(3, contactsList.size());
+    }
+    @Test
+    public void addNewContact_ShouldMatchContactCount(){
+        addressBookDB = new AddressBookDB();
+        addressBookDB.addContact();
+        List<Contacts> contactsList = addressBookDB.readData();
+        System.out.println(contactsList);
+        Assertions.assertEquals(6, contactsList.size());
     }
 }
